@@ -1,5 +1,4 @@
 #! /usr/bin/env node
-
 import inquirer from "inquirer";
 import chalk from "chalk";
 import chalkAnimation from "chalk-animation";
@@ -95,7 +94,9 @@ async function doMore() {
       {
         name: "repeat",
         type: "input",
-        message: chalk.red("Do You Want To Continue, If Yes Press 'Y' Other Wise 'N'"),
+        message: chalk.red(
+          "Do You Want To Continue, If Yes Press 'Y' Other Wise 'N'"
+        ),
       },
     ]);
   } while (
@@ -106,9 +107,6 @@ async function doMore() {
   );
 }
 
-async function wait() {
-  setTimeout(() => {
-    doMore();
-  }, 500);
-}
-wait();
+setTimeout(() => {
+  doMore();
+}, 500);

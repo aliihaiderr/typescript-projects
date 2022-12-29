@@ -80,9 +80,6 @@ async function doMore() {
         more.repeat == "YES" ||
         more.repeat == "yes");
 }
-async function wait() {
-    setTimeout(() => {
-        doMore();
-    }, 500);
-}
-wait();
+setTimeout(() => {
+    doMore();
+}, 500);

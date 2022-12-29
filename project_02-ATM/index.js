@@ -1,4 +1,3 @@
-#! /usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
 import showBanner from "node-banner";
@@ -25,7 +24,7 @@ async function userLogin() {
 setTimeout(() => {
     userLogin();
 }, 500);
-//some more featur has functionality of continue and exit
+//some morefeatur has functionality of continue and exit
 async function moreFeature() {
     const moreOptions = await inquirer.prompt([
         {
@@ -61,7 +60,6 @@ async function atmMachine() {
     //   console.log(chooseOptions);
     if (chooseOptions.options === "Cash Withdrawel") {
         console.log(chalk.green(`Your Current Balance : ${userBalance.amount}$`));
-        1;
         const withdrawelAmount = await inquirer.prompt([
             {
                 name: "amount",

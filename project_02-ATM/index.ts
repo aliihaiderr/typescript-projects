@@ -32,7 +32,7 @@ setTimeout(() => {
   userLogin();
 }, 500);
 
-//some more featur has functionality of continue and exit
+//some morefeatur has functionality of continue and exit
 async function moreFeature() {
   const moreOptions: { continue: "Continue" | "Exit" } = await inquirer.prompt([
     {
@@ -71,7 +71,6 @@ async function atmMachine() {
   //   console.log(chooseOptions);
   if (chooseOptions.options === "Cash Withdrawel") {
     console.log(chalk.green(`Your Current Balance : ${userBalance.amount}$`));
-    1;
     const withdrawelAmount: { amount: number } = await inquirer.prompt([
       {
         name: "amount",
