@@ -1,6 +1,6 @@
 {
-  "name": "cli_calculator_pro_00",
-  "version": "2.0.0",
+  "name": "cli_calculator_typescript",
+  "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "type": "module",
