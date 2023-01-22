@@ -1,6 +1,25 @@
+#! usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
+import chalkAnimation from 'chalk-animation';
+import showBanner from "node-banner";
 
+
+const sleep=()=>{
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve,1500);
+    })
+}
+
+async function welcome(){
+    const title=chalkAnimation.rainbow("Welcome To Currency Converter");
+    await sleep();
+    title.stop();
+}
+await welcome();
+(async () => {
+    await showBanner('Currency Converter', 'Convert & Exchange Currency','green','grey' );
+})();
 const usdpkr= 229.85;
 const usdcad= 1.34;
 const cadpkr= 171.61;
@@ -14,7 +33,7 @@ async function repeatAgain() {
             name:"option",
             type:"list",
             choices:["Yes","No"],
-            message:"Do You Want To Do More Transaction"
+            message:chalk.blue("Do You Want To Do More Transaction")
         }
     ])
     return (userRes.option === "Yes") ? true : false;
@@ -28,18 +47,18 @@ async function converter() {
             name: "currencyFrom",
             type: "list",
             choices: ["USD", "CAD", "PKR"],
-            message: "Choose Currency Which You Want To Exchange",
+            message: chalk.green("Choose Currency Which You Want To Exchange"),
         },
         {
             name: "currencyTo",
             type: "list",
             choices: ["USD", "CAD", "PKR"],
-            message: "Choose Currency in Which You Want To Convert",
+            message: chalk.green("Choose Currency in Which You Want To Convert"),
         },
         {
             name:"amount",
             type:"number",
-            message:"Enter Desired Amount Which you Want to Convert"
+            message:chalk.blackBright("Enter Desired Amount Which you Want to Convert")
         }
     ]);
 
@@ -47,38 +66,41 @@ async function converter() {
         case "USD":
             if (ans.currencyTo === "CAD") {
                 let Amount=ans.amount*usdcad;
-                console.log(Amount);
+                console.log(chalk.magenta(Amount));
             } else if (ans.currencyTo === "PKR") {
                 let Amount=ans.amount*usdpkr
-                console.log(Amount);
+                console.log(chalk.magenta(Amount));
             }else {
-                console.log(ans.amount);
+                console.log(chalk.magenta(ans.amount));
             }
             break;
         case "CAD":
             if (ans.currencyTo === "USD") {
                 let Amount=ans.amount*cadusd;
-                console.log(Amount);
+                console.log(chalk.magenta(Amount));
             } else if (ans.currencyTo === "PKR") {
                 let Amount=ans.amount*cadpkr
-                console.log(Amount);
+                console.log(chalk.magenta(Amount));
             }else {
-                console.log(ans.amount);
+                console.log(chalk.magenta(ans.amount));
             }
             break;
         case "PKR":
             if (ans.currencyTo === "USD") {
                 let Amount=ans.amount*pkrusd;
-                console.log(Amount);
+                console.log(chalk.magenta(Amount));
             } else if (ans.currencyTo === "CAD") {
                 let Amount=ans.amount*pkrcad
-                console.log(Amount);
+                console.log(chalk.magenta(Amount));
             }else {
-                console.log(ans.amount);
+                console.log(chalk.magenta(ans.amount));
             }
             break;
     }
     repeat = await repeatAgain();
 } while (repeat == true);
 }
-converter();
+
+setTimeout(()=>{
+    converter();
+},300);
