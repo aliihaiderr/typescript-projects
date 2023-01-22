@@ -60,40 +60,40 @@ async function converter() {
             case "USD":
                 if (ans.currencyTo === "CAD") {
                     let Amount = ans.amount * usdcad;
-                    console.log(chalk.magenta(Amount));
+                    console.log(chalk.magenta(`${Amount} CAD`));
                 }
                 else if (ans.currencyTo === "PKR") {
                     let Amount = ans.amount * usdpkr;
-                    console.log(chalk.magenta(Amount));
+                    console.log(chalk.magenta(`${Amount} PKR`));
                 }
                 else {
-                    console.log(chalk.magenta(ans.amount));
+                    console.log(chalk.magenta(`${ans.amount} USD`));
                 }
                 break;
             case "CAD":
                 if (ans.currencyTo === "USD") {
                     let Amount = ans.amount * cadusd;
-                    console.log(chalk.magenta(Amount));
+                    console.log(chalk.magenta(`${Amount} USD`));
                 }
                 else if (ans.currencyTo === "PKR") {
                     let Amount = ans.amount * cadpkr;
-                    console.log(chalk.magenta(Amount));
+                    console.log(chalk.magenta(`${Amount} PKR`));
                 }
                 else {
-                    console.log(chalk.magenta(ans.amount));
+                    console.log(chalk.magenta(`${ans.amount} CAD`));
                 }
                 break;
             case "PKR":
                 if (ans.currencyTo === "USD") {
                     let Amount = ans.amount * pkrusd;
-                    console.log(chalk.magenta(Amount));
+                    console.log(chalk.magenta(`${Amount} USD`));
                 }
                 else if (ans.currencyTo === "CAD") {
                     let Amount = ans.amount * pkrcad;
-                    console.log(chalk.magenta(Amount));
+                    console.log(chalk.magenta(`${Amount} CAD`));
                 }
                 else {
-                    console.log(chalk.magenta(ans.amount));
+                    console.log(chalk.magenta(`${ans.amount} PKR`));
                 }
                 break;
         }
