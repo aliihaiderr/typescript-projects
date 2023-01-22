@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "bin": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "bin": "./index.js",
   "license": "ISC",
   "dependencies": {
     "@types/inquirer": "^9.0.3",
