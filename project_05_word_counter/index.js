@@ -2,9 +2,10 @@
 import chalk from "chalk";
 import inquirer from "inquirer";
 import chalkAnimation from 'chalk-animation';
+import showBanner from "node-banner";
 const sleep = () => {
     return new Promise((resolve, reject) => {
-        setTimeout(resolve, 1000);
+        setTimeout(resolve, 1500);
     });
 };
 async function welcome() {
@@ -13,13 +14,16 @@ async function welcome() {
     title.stop();
 }
 await welcome();
+(async () => {
+    await showBanner('Word Counter', 'Count Word & Charactors', 'blue', 'grey');
+})();
 async function repeatAgain() {
     const response = await inquirer.prompt([
         {
             name: "repeat",
             type: "list",
             choices: ["Yes", "No"],
-            message: "Do You Want To Calculate More Words"
+            message: chalk.green("Do You Want To Calculate More Words")
         }
     ]);
     return response.repeat === "Yes" ? true : false;
@@ -35,10 +39,12 @@ async function wordCounter() {
             }
         ]);
         let Paragraph = question.userRes.split(" ");
-        console.log(`words in paragraph is ${Paragraph.length}`);
+        console.log(chalk.blue(`Words In Paragraph Is ${Paragraph.length}`));
         let wordCount = question.userRes.replace(/ /g, "");
-        console.log(`Charactors in your paragraph is ${wordCount.length}`);
+        console.log(chalk.blue(`Total Charactors In Your Paragraph Is ${wordCount.length}`));
         repeat = await repeatAgain();
     } while (repeat == true);
 }
-wordCounter();
+setTimeout(() => {
+    wordCounter();
+}, 500);
